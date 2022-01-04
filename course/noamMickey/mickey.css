@@ -1,0 +1,53 @@
+    .circle {
+        position: relative;
+        background-color: black;
+        border-radius: 50%;
+    }
+    
+    .ear {
+        height: 100px;
+        width: 100px;
+    }
+    
+    .right-ear {
+        left: 190px;
+        top: 25px;
+    }
+    
+    .left-ear {
+        left: 300px;
+        top: 123px;
+    }
+    
+    .head {
+        height: 200px;
+        width: 200px;
+        left: 200px;
+    }
+    
+    .mickey:hover {
+        background-color: brown;
+    }
+    
+    .circle:hover {
+        border: 2px, solid, black;
+        background-color: crimson;
+    }
+    
+    .btn {
+        background-color: #95fd41;
+        border-radius: 0.4em;
+        border: 2px solid rgb(60, 121, 0);
+        color: #306b00;
+    }
+    
+    .btn:hover {
+        background-color: #377503;
+        border-radius: 0.4em;
+        border: 2px solid rgb(60, 121, 0);
+        color: #b6e291;
+    }
+    
+    .input {
+        border-radius: .3em;
+    }

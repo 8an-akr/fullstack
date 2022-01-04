@@ -1,9 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Products from "./components/Products/Products";
 
 function App() {
-  const jacketList = [
+  const itemList = [
     {
       id: 1,
       title: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -211,10 +212,33 @@ function App() {
       rating: { rate: 3.6, count: 145 },
     },
   ];
+  const categories = [
+    "All items",
+    ...itemList
+      .map((p) => p.category)
+      .filter((value, index, array) => array.indexOf(value) === index),
+  ];
+
+  const [chosenCat, setCat] = useState("All items");
+
+  const catArr = (cat) =>
+    cat === "All items"
+      ? itemList
+      : itemList.filter((item) => item.category === cat);
+
+  // const renderCat = (arr) => (
+  // setCat = (arr) => setFilterCat(catArr);
+  // )
+  // function listByCat(arr) {
+  //   item.category === "All Jackets"
+  //     ? itemList
+  //     : arr.filter((item) => item.category === category);
+  // }
+
   return (
     <>
-      <Header />
-      <Products list={jacketList} />
+      <Header filterByCat={setCat} categories={categories} />
+      <Products getCatArr={catArr} cat={chosenCat} jacketList={itemList} />
     </>
   );
 }

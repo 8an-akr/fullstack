@@ -1,14 +1,17 @@
 import ProductCard from "../ProductCard/ProductCard";
-import "./products.css";
+import "./Products.css";
 
-const Products = ({ list }) => (
+const Products = ({ cat, jacketList, getCatArr }) => (
   <section className="products">
-    {list.map((jacket) => (
+    {getCatArr(cat).map((item) => (
       <ProductCard
-        key={jacket.id}
-        title={jacket.title}
-        image={jacket.image}
-        price={jacket.price}
+        key={item.id}
+        title={item.title}
+        image={item.image}
+        price={item.price}
+        description={item.description}
+        category={item.category}
+        rating={item.rating}
       />
     ))}
   </section>

@@ -1,7 +1,7 @@
 import ProductCard from "../ProductCard/ProductCard";
 import "./Products.css";
 
-const Products = ({ cat, jacketList, getCatArr }) => (
+const Products = ({ cat, getCatArr }) => (
   <section className="products">
     {getCatArr(cat).map((item) => (
       <ProductCard

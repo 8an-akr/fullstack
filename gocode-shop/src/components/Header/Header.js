@@ -1,6 +1,6 @@
 import "./Header.css";
 
-const Header = ({ filterByCat, categories }) => {
+const Header = ({ filterByCat, sortByChoice, categories, sortOpt }) => {
   return (
     <nav className="product-filter">
       <h1>Jackets</h1>
@@ -10,22 +10,22 @@ const Header = ({ filterByCat, categories }) => {
           <label>Filter by:</label>
           <select id="cat" onChange={(v) => filterByCat(v.target.value)}>
             {categories.map((category) => (
-              <option value={`${category}`}>{`${category}`}</option>
+              <option
+                key={category}
+                value={`${category}`}
+              >{`${category}`}</option>
             ))}
           </select>
         </div>
 
         <div className="collection-sort">
           <label>Sort by:</label>
-          <select>
-            <option value="/">Featured</option>
-            <option value="/">Best Selling</option>
-            <option value="/">Alphabetically, A-Z</option>
-            <option value="/">Alphabetically, Z-A</option>
-            <option value="/">Price, low to high</option>
-            <option value="/">Price, high to low</option>
-            <option value="/">Date, new to old</option>
-            <option value="/">Date, old to new</option>
+          <select onChange={(v) => sortByChoice(v.target.value)}>
+            {sortOpt.map((sort) => (
+              <option key={sort} value={sort}>
+                {`${sort}`}
+              </option>
+            ))}
           </select>
         </div>
       </div>

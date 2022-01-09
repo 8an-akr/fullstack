@@ -219,6 +219,14 @@ function App() {
       .filter((value, index, array) => array.indexOf(value) === index),
   ];
 
+  const sortArr = [
+    "Best Selling",
+    "Alphabetically, A-Z",
+    "Alphabetically, Z-A",
+    "Price, low to high",
+    "Price, high to low",
+  ];
+
   const [chosenCat, setCat] = useState("All items");
 
   const catArr = (cat) =>
@@ -226,19 +234,20 @@ function App() {
       ? itemList
       : itemList.filter((item) => item.category === cat);
 
-  // const renderCat = (arr) => (
-  // setCat = (arr) => setFilterCat(catArr);
-  // )
-  // function listByCat(arr) {
-  //   item.category === "All Jackets"
-  //     ? itemList
-  //     : arr.filter((item) => item.category === category);
-  // }
+  const [sortBy, setSortBy] = useState("Best Selling");
+
+  // const sortArr = (catArr)=>
+  // sortChoice ==="Best Selling" ?
 
   return (
     <>
-      <Header filterByCat={setCat} categories={categories} />
-      <Products getCatArr={catArr} cat={chosenCat} jacketList={itemList} />
+      <Header
+        filterByCat={setCat}
+        sortByChoice={setSortBy}
+        categories={categories}
+        sortOpt={sortArr}
+      />
+      <Products getCatArr={catArr} cat={chosenCat} />
     </>
   );
 }

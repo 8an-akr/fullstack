@@ -32,8 +32,30 @@ function getUser(id): User {
 
 type MyName = "yontan" | "yehuda" | 10;
 
-function bla(name: MyName): void {
+function myName(name: MyName): void {
   console.log(name);
 }
 
-bla(10);
+type ArrStr = Array<string>;
+
+function bla(arr: ArrStr): void {
+  console.log(arr);
+}
+
+bla(["32", "sasass"]);
+
+interface Backpack<Type> {
+  add: (obj: Type) => void;
+  get: () => Type;
+}
+
+const test: Backpack<String> = {
+  add: (x) => {
+    console.log(x);
+  },
+  get: () => {
+    return "0";
+  },
+};
+
+test.add("pencil");
